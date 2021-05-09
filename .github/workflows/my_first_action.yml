@@ -23,7 +23,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Send message - Hello, I am a github step
         run: |
-          Hello, I am a github step
+          echo Hello, I am a github step
 
       # Runs a set of commands using the runners shell
       - name: Send message - Job has been completed
