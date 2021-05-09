@@ -6,7 +6,10 @@ const app = Vue.createApp({
 			imageSource: './media/sample.jpg',
 			// additional properties later
 
-			styleObject: {
+			productImage: './media/sample.jpg',
+			productImageDescription: 'An astronaut floats outside the window while you sit in comfort',
+			productImageStyle: {
+				'border-radius': '15px',
 				'height': '200px'
 			}
 		}
