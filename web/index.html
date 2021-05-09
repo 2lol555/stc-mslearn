@@ -37,7 +37,29 @@
 		<h2>{{productName}}</h2>
 		<div>{{productDescription}}</div>
 		<img :src="productImage" :alt="productImageDescription" :style="productImageStyle" />
+
+		<ul>
+			<li v-for="name in names" :key="index">{{name}}</li>
+		</ul>
+
+		<div v-for="(productClass, index) in productClasses" :key="index" class="row">
+			<div class="column">
+				{{ productClass.name }}
+			</div>
+			<div class="column">
+				$ {{ productClass.price.toLocaleString('en-US') }}
+			</div>
+			<!-- More to come -->
+			<button v-if="productClass.earlyBird" class="button">Book early bird!</button>
+			<button v-else class="button">Book now!</button>
+			
+			<div v-show="productClass.seatsAvailable < 10">Almost sold out!</div>
+
+		
+		</div>
 	</div>
+
+
 
 	
 	<script src="index.js"></script>
