@@ -1,2 +1,2 @@
 # stc-mslearn
-GitHub repo vytvorené na splnenie zadania
+Táto zmena bola urobená na demonštráciu pull requestov :)
