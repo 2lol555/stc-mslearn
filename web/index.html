@@ -32,8 +32,23 @@
 
 </head>
 <body>
-	<header></header>
-	<main></main>
-	<footer></footer>
+	<!-- the HTML element which will host our app -->
+	<div id='app'>
+		{{firstName}}, {{lastName}}
+	</div>
+	
+	<script src="https://unpkg.com/vue@next"></script>
+	<script>
+		const App = Vue.createApp({
+			data() {
+				return {
+					firstName: 'Samuel',
+					lastName: 'Polakovič'
+				};
+			}
+		});
+		// Registering and mounting our app
+		App.mount('#app');
+	</script>
 </body>
 </html>
