@@ -1,9 +1,6 @@
-# Meno a priezvisko
-Samuel Polakovič
+# NodeJS ŠTC Project
 
-# MS Learn odkaz
-Take your first steps with Vue.js
-https://docs.microsoft.com/en-us/learn/paths/vue-first-steps/
-
-# Profil MS Learn
-https://docs.microsoft.com/en-us/users/samuelpolakovi-1746
+Commands in order:
+- npm install #Install project
+- tsc #Compile to JavaScript
+- npm run start #Start the project
