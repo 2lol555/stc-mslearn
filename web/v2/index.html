@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nightfury</title>
+
+	<!--fontawesome-->
+	<script src="https://kit.fontawesome.com/0b9d1071cf.js" crossorigin="anonymous"></script>
+
+	<!--Our stylesheets-->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!--Google Fonts, Source Sans Pro-->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+	<!--jquery-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+	<!-- TODO: Import Vue.js core library -->
+	<script src="https://unpkg.com/vue@next"></script>
+
+	<!--[if lt IE 9]-->
+		<!--HTML 5 Shiv-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha512-UDJtJXfzfsiPPgnI5S1000FPLBHMhvzAMX15I+qG2E2OAzC9P1JzUwJOfnypXiOH7MRPaqzhPbBGDNNj7zBfoA==" crossorigin="anonymous"></script>
+		<!--Selectivizr-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js" integrity="sha512-0mXreXYrXoy9laHoypsAOjuSCqh57vY+kIdE46k8Hw0yRY1EhJyHWUEAqfHOTrPkBpsbO39/ZPw5HITv8mLVOA==" crossorigin="anonymous"></script>
+	<!--[endif]-->
+
+</head>
+<body>
+	<div class="nav-bar"></div>
+	<h1>Relecloud Galaxy Tours</h1>
+	
+	<div id="app">
+		<h2>{{ product.name }}</h2>
+		<div>{{ product.description }}</div>
+		<hr />
+	
+		<form v-show="!booking.completed">
+			<h2>Book now!</h2>
+			<div class="row">
+				<label for="product-cabin">Select class:</label>
+				<select id="product-cabin" v-model="booking.cabinIndex">
+					<option v-for="(cabin, index) in product.cabins" :value="index">
+						{{ cabin.name }} $ {{ cabin.price.toLocaleString('en-US') }}
+					</option>
+				</select>
+			</div>
+			<div class="row">
+				<label for="notes">Notes:</label>
+				<textarea v-model="booking.notes" rows="3"></textarea>
+			</div>
+			<div class="row">
+
+				<button class="button" type="button" @click="bookCabin">Book now!</button>
+		
+		
+			</div>
+		</form>
+	
+		<!-- TODO: Add success display -->
+		<div v-show="booking.completed">
+			<h2 class="row">
+				You are on your way!
+			</h2>
+			<div class="row">
+				<div>Booking details:</div>
+				<div>{{ bookingCabinDisplay }} </div>
+				<div>Notes: {{ booking.notes }}</div>
+			</div>
+		</div>
+	
+	
+		<img v-bind:src="product.image.src" v-bind:alt="product.image.description" :style="product.image.style" />
+	</div>
+	
+	<script src="index.js"></script>
+	<script>
+		// Registering and mounting our app
+		app.mount('#app');
+	</script>
+</body>
+</html>
